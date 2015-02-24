@@ -1,0 +1,26 @@
+<h1>My bookmarks</h1>
+
+<h1 class="text-center">All Bookmarks</h1>
+
+<% @bookmarks.each do |bookmark| %>
+  <p><%= link_to "#{bookmark.url}", bookmark_path(bookmark) %></p>
+  <% end %>
+  
+<% if current_user %>
+  <%= link_to "Create Bookmark", new_bookmark_path, class: 'btn btn-primary btn-large' %>
+<% end %>
+
+<h1 class="text-center">My Liked Bookmarks</h1>
+<% @likes.each do |like| %>
+  <p><%= link_to "#{like.bookmark.url}", bookmark_path(like.bookmark) %></p>
+  <%= render partial: 'likes/like', locals: { bookmark: like.bookmark } %>
+<%end %>
+
+<% if current_user %>
+  <%= link_to "Create Bookmark", new_bookmark_path, class: 'btn btn-primary btn-large' %>
+<% end %>
+
+
+
+<%# @bookmarks.title %>
+<%# end %>

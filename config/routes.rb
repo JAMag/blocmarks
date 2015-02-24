@@ -1,10 +1,20 @@
 Rails.application.routes.draw do
-  devise_for :users
-  get 'welcome/index'
 
-  get 'welcome/about'
+  get 'users/show'
+
+  devise_for :users
+  resources :users, only: [:show]
+
+  resources :topics, only: [:index]
+    resources :bookmarks do
+      resources :likes, only: [:create, :destroy]
+    end
+
+  post :incoming, to: 'incoming#create'
 
   root to: 'welcome#index'
+
+end
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
@@ -60,4 +70,4 @@ Rails.application.routes.draw do
   #     # (app/controllers/admin/products_controller.rb)
   #     resources :products
   #   end
-end
+
