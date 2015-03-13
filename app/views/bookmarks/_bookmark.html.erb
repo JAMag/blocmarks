@@ -1,0 +1,8 @@
+<div class="row">
+  <div class="col-md-8">
+    <div class ="panel panel-primary">
+      <%= link_to bookmark.url, bookmark_path(bookmark) %>
+      <%= render partial: 'likes/like', locals: { bookmark: bookmark } %>
+    </div>
+  </div>
+</div>

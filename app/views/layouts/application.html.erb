@@ -13,13 +13,13 @@
       <li><%=link_to "Blocmarks", root_path %></li>
       <li><%=link_to "Topics", topics_path %></li>
       <% if current_user %>
-        <li><%=link_to "User Edit", user_path(current_user) %></li>
+        <li><%=link_to "Your Likes", user_path(current_user) %></li>
       <% end %>
         <div class="pull-right user-info">
           <% if current_user %>
             Hello <%= current_user.email %>! <%= link_to "Sign out", destroy_user_session_path, method: :delete %>
             <%=link_to destroy_user_session_path, method: :delete, class: 'btn btn-primary btn-sm' do %>
-            <span class="glphicon glyphicon-user"></span>
+            <span class="glyphicon glyphicon-user"></span>
           <% end %>
             <%= link_to "Sign In", new_user_session_path %> or 
             <%= link_to  "Sign Up", new_user_registration_path %>

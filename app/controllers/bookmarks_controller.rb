@@ -11,15 +11,6 @@ class BookmarksController < ApplicationController
   end
 
   def new
-    @bookmark = Bookmark.new(params.require(:bookmark).permit(:title, :body))
-    authorize @bookmark
-    if @bookmark.save
-      flash[:notice] = "Bookmark saved."
-      redirect_to @bookmark
-    else
-      flash[:error] = "Error creating bookmark. Try again."
-      render :new
-    end
   end
 
   def edit
@@ -52,5 +43,11 @@ class BookmarksController < ApplicationController
     @bookmark = Bookmark.find(params [:id])
     @bookmark.destroy
     redirect_to bookmarks_url, notice: "You destroyed your bookmark. I hope you wanted to."
+  end
+
+  private
+
+  def bookmark_params
+    params.require(:bookmark).permit(:url)
   end
 end

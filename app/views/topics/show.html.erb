@@ -1,8 +1,14 @@
-<h1>@topic.title</h1>
+<h1><%=@topic.title%></h1>
 <% if policy(@topic).edit? %>
   <%= link_to "Edit", edit_topic_path(@topic), class: 'btn btn-success' %>
 <% end %>
 
 <% @bookmarks.each do |bookmark| %>
-  <%=bookmark.title %> <%= render partial: 'likes/like', locals: { the_bookmark: bookmark} %>
+  <%= render partial: 'bookmarks/bookmark', locals: { bookmark: bookmark} %>
+
 <% end %>
+
+  <div class="media-body">
+      <h4 class="media-heading">
+      </h4>
+    </div>

@@ -5,7 +5,7 @@ Rails.application.routes.draw do
   devise_for :users
   resources :users, only: [:show]
 
-  resources :topics, only: [:index]
+  resources :topics, only: [:index, :show, :new, :create]
     resources :bookmarks do
       resources :likes, only: [:create, :destroy]
     end

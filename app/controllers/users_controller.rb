@@ -7,6 +7,7 @@ before_action :authenticate_user!
     #@liked_bookmars = User.liked_bookmarks
 
     @user = User.find(params[:id])
+    @topics = @user.topics
     @bookmarks = @user.bookmarks
     @likes = @user.likes
   end
@@ -17,7 +18,7 @@ before_action :authenticate_user!
     respond_to do |format|
       if @user.save
         UserMailer.welcome_email(@user).deliver_later
-        format.html { redirect_to (@user, notice: 'User was successfully created.') }
+        format.html { redirect_to @user, notice: 'User was successfully created.' }
         format.json { render json: @user, status: :created, location: @user }
       else
         format.html { render action: 'new' }

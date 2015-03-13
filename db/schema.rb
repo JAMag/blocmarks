@@ -25,13 +25,11 @@ ActiveRecord::Schema.define(version: 20150218010418) do
   add_index "bookmarks", ["user_id"], name: "index_bookmarks_on_user_id"
 
   create_table "likes", force: :cascade do |t|
-    t.string   "bookmark"
-    t.string   "user"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.integer  "bookmark_id"
+    t.integer  "user_id"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
   end
-
-  add_index "likes", ["user"], name: "index_likes_on_user"
 
   create_table "topics", force: :cascade do |t|
     t.string   "title"

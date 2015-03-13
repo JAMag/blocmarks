@@ -1,0 +1,7 @@
+<h1> All Bookmarks </h1>
+
+<ol>
+<% @bookmarks.each do |bookmark| %>
+  <li><%= link_to bookmark.topic.title, "http://#{bookmark.url}" %></li>
+<% end %>
+</ol>

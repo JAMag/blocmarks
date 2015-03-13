@@ -2,7 +2,7 @@ class TopicsController < ApplicationController
   before_action :authenticate_user!, except: [:index, :show]
   
   def index
-    @topics = current_user.topics
+    @topics = Topic.all
   end
 
   def show
