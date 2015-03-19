@@ -8,7 +8,7 @@ class IncomingController < ApplicationController
       if user
         topic = Topic.find_or_create_by(title: params[:subject])
         #bookmark = Bookmark.find_or_create_by(url: params["body-plain"])
-        bookmark = user.bookmarks.find_or_build_by(url: params["body-plain"])
+        bookmark = user.bookmarks.find_or_create_by(url: params["body-plain"])
         bookmark.topic = topic
         bookmark.save
         #user_bookmark = UserBookmark.create(user: user, bookmark: bookmark)
