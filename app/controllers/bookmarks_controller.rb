@@ -2,7 +2,7 @@ class BookmarksController < ApplicationController
   before_action :authenticate_user!, except: [:index, :show]
 
   def show
-    @bookmark = Bookmark.find(params [:id])
+    @bookmark = Bookmark.find(params[:id])
   end
 
   def index
@@ -17,7 +17,7 @@ class BookmarksController < ApplicationController
   end
 
   def update
-    @bookmark = Bookmark.find(params [:id])
+    @bookmark = Bookmark.find(params[:id])
     if @bookmark.update_attributes(params[:bookmark])
       redirect_to @bookmark, notice: "Successfully updated bookmark."
     else
@@ -40,7 +40,7 @@ class BookmarksController < ApplicationController
   end
 
   def destroy 
-    @bookmark = Bookmark.find(params [:id])
+    @bookmark = Bookmark.find(params[:id])
     @bookmark.destroy
     redirect_to bookmarks_url, notice: "You destroyed your bookmark. I hope you wanted to."
   end
