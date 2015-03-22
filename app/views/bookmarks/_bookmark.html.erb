@@ -1,8 +1,10 @@
 <div class="row">
   <div class="col-md-8">
     <div class ="panel panel-primary">
-      <%= link_to bookmark.url, bookmark_path(bookmark) %>
+      <%= link_to bookmark.url, "http://#{bookmark.url}"  %>
       <%= render partial: 'likes/like', locals: { bookmark: bookmark } %>
+      <%= link_to "edit", edit_bookmark_path(bookmark) %>
+      <%= link_to "delete", bookmark_path(bookmark), method: :delete %>
     </div>
   </div>
 </div>

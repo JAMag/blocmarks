@@ -3,7 +3,7 @@
 <h1 class="text-center">All Bookmarks</h1>
 
 <% @bookmarks.each do |bookmark| %>
-  <%= render partial: 'bookmars/bookmark', locals: { bookmark: bookmark } %>
+  <%= render partial: 'bookmarks/bookmark', locals: { bookmark: bookmark } %>
   <% end %>
   
 <% if current_user %>
@@ -12,7 +12,7 @@
 
 <h1 class="text-center">My Liked Bookmarks</h1>
 <% @likes.each do |like| %>
-  <%= render partial: 'bookmars/bookmark', locals: { bookmark: like.bookmark } %>
+  <%= render partial: 'bookmarks/bookmark', locals: { bookmark: like.bookmark } %>
 <%end %>
 
 
